@@ -20,3 +20,13 @@ Print a message:
 September 2016.".
 """
 
+longestCall = 0
+associatedNumber = 0
+
+for entry in calls:
+    if int(entry[3]) > longestCall:
+        longestCall = int(entry[3])
+        associatedNumber = entry[0]
+
+print("{0} spent the longest time, {1} seconds, on the phone during September 2016."
+      .format(associatedNumber, longestCall))
