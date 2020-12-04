@@ -1,0 +1,30 @@
+Task0
+Time: 0(1)
+- regardless of the number of elements in the dataset, the program is accessing the first and last
+which is a simple lookup
+Space: 0(1)
+- nothing is being copied or duplicated in this solution
+
+
+Task1
+Time: O(n)
+- the program will have to iterate through the entire set once
+Space: O(1)
+- nothing is being copied or duplicated in this solution
+
+
+Task2
+Time: O(n)
+- the program will have to iterate through the entire set once
+Space:
+- nothing is being copied or duplicated in this solution
+
+
+Task3
+Time:
+Space
+
+
+Task4
+Time:
+Space:
