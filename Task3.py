@@ -43,3 +43,43 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+# Part A
+bangaloreCalled = []
+
+
+def get_code_for_fixed(num):
+    return num[1:num.find(')')]
+
+
+def get_code_for_mobile(num):
+    return num[0:num.find(' ')]
+
+
+def get_phone_code(num):
+    if num[0] == '(':
+        return get_code_for_fixed(num)
+    elif num[0] == '7' or num[0] == '8' or num[0] == '9':
+        return get_code_for_mobile(num)
+    else:
+        return 140
+
+
+for entry in calls:
+    if "(080)" in entry[0]:
+        bangaloreCalled.append(get_phone_code(entry[1]))
+
+print("The numbers called by people in Bangalore have codes:")
+for e in bangaloreCalled:
+    print(e)
+
+# Part B
+bangaloreCount = 0
+for e in bangaloreCalled:
+    if e == "080":
+        bangaloreCount += 1
+
+percentage = bangaloreCount / len(bangaloreCalled)
+
+print("\n{0} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."
+      .format(percentage))
