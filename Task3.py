@@ -69,7 +69,7 @@ def get_phone_code(num):
 for entry in calls:
     if "(080)" in entry[0]:
         code = get_phone_code(entry[1])
-        bangaloreCalled.append(code)
+        bangaloreCalled.append(code)  # for part B
         if code not in uniqueCodes:
             uniqueCodes.append(code)
 

@@ -16,13 +16,19 @@ Space: O(1)
 Task2
 Time: O(n)
 - the program will have to iterate through the entire set once
-Space:
+Space: O(1)
 - nothing is being copied or duplicated in this solution
 
 
 Task3
-Time:
-Space
+Time: O(n)
+- the main dataset, calls, is iterated once and two lists are created from this:
+one containing all the phone codes Bangalore called and one for the unique codes.
+Those lists are also iterated once. One could also argue that the answer is:
+O(length of calls + length bangaloreCalled + length uniqueCodes)
+Space: O(n)
+- while the entire calls dataset isn't copied, some of it is used to create other lists
+and 1/2n still comes out to n
 
 
 Task4
