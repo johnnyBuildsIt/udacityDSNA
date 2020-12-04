@@ -46,6 +46,7 @@ The percentage should have 2 decimal digits
 
 # Part A
 bangaloreCalled = []
+uniqueCodes = []
 
 
 def get_code_for_fixed(num):
@@ -67,19 +68,25 @@ def get_phone_code(num):
 
 for entry in calls:
     if "(080)" in entry[0]:
-        bangaloreCalled.append(get_phone_code(entry[1]))
+        code = get_phone_code(entry[1])
+        bangaloreCalled.append(code)
+        if code not in uniqueCodes:
+            uniqueCodes.append(code)
+
+uniqueCodes.sort()
 
 print("The numbers called by people in Bangalore have codes:")
-for e in bangaloreCalled:
+for e in uniqueCodes:
     print(e)
 
+
 # Part B
-bangaloreCount = 0
+bangalore_to_bangalore_count = 0
 for e in bangaloreCalled:
     if e == "080":
-        bangaloreCount += 1
+        bangalore_to_bangalore_count += 1
 
-percentage = bangaloreCount / len(bangaloreCalled)
+percentage = bangalore_to_bangalore_count / len(bangaloreCalled)
 
 print("\n{0} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."
       .format(percentage))
