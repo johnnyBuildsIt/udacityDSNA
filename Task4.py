@@ -43,4 +43,8 @@ for e in texts:
 
 suspectedTelemarketers = []
 
+for e in outgoingCalls:
+    if e not in incomingCalls and e not in outgoingTexts and e not in incomingTexts and e[0] != '1':
+        suspectedTelemarketers.append(e)
 
+print(suspectedTelemarketers)
