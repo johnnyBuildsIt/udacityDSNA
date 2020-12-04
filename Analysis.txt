@@ -28,9 +28,12 @@ Those lists are also iterated once. One could also argue that the answer is:
 O(length of calls + length bangaloreCalled + length uniqueCodes)
 Space: O(n)
 - while the entire calls dataset isn't copied, some of it is used to create other lists
-and 1/2n still comes out to n
+and 1/2n still comes out to n, all the new data structures are 1D
 
 
 Task4
-Time:
-Space:
+Time: O(n)
+texts and calls are each iterated once and outgoing calls is also iterated
+however there are no nested loops
+Space: O(n)
+new data structures are being made from the originals but they are all 1D
