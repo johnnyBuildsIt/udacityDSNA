@@ -8,16 +8,20 @@ Space: 0(1)
 
 Task1
 Time: O(n)
-- the program will have to iterate through the entire set once
+- the program will have to iterate through texts and calls once
+- n being equal to the size of texts plus the size of calls
 Space: O(1)
 - nothing is being copied or duplicated in this solution
 
 
 Task2
-Time: O(n)
-- the program will have to iterate through the entire set once
-Space: O(1)
-- nothing is being copied or duplicated in this solution
+Time: O(n^2)
+- when get_times_for_numbers is called, it will iterate through all of calls once
+- for each element in the set is will check if it is in the callTimes keys
+- the worst case being all the numbers are in the keys
+Space: O(n)
+- where n is the number of unique numbers in calls
+- all the numbers in calls are being copied to a new data structure
 
 
 Task3
