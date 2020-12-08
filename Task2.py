@@ -19,14 +19,23 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
+CALLERS = 0
+RECEIVERS = 1
+callTimes = {}
 
-longestCall = 0
-associatedNumber = 0
 
-for entry in calls:
-    if int(entry[3]) > longestCall:
-        longestCall = int(entry[3])
-        associatedNumber = entry[0]
+def get_times_for_numbers(index):
+    for entry in calls:
+        if entry[index] not in callTimes.keys():
+            callTimes[entry[index]] = int(entry[3])
+        else:
+            callTimes[entry[index]] += int(entry[3])
+
+
+get_times_for_numbers(CALLERS)
+get_times_for_numbers(RECEIVERS)
+
+num_with_max_time = max(callTimes, key=callTimes.get)
 
 print("{0} spent the longest time, {1} seconds, on the phone during September 2016."
-      .format(associatedNumber, longestCall))
+      .format(num_with_max_time, callTimes.get(num_with_max_time)))
