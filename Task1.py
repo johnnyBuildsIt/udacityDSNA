@@ -18,23 +18,18 @@ How many different telephone numbers are there in the records?
 Print a message:
 "There are <count> different telephone numbers in the records."
 """
+unique_numbers = set()
 
 
-def get_unique_numbers(in_list):
-    unique_numbers = []
+def add_numbers_to_unique_set(in_list):
     for entry in in_list:
-        calling_num = entry[0]
-        receiving_num = entry[1]
-        if calling_num not in unique_numbers:
-            unique_numbers.append(calling_num)
-        if receiving_num not in unique_numbers:
-            unique_numbers.append(receiving_num)
-
-    return len(unique_numbers)
+        unique_numbers.add(entry[0])
+        unique_numbers.add(entry[1])
 
 
-uniqueNumbersTotal = 0
-uniqueNumbersTotal += get_unique_numbers(texts)
-uniqueNumbersTotal += get_unique_numbers(calls)
+add_numbers_to_unique_set(texts)
+add_numbers_to_unique_set(calls)
 
-print("There are {0} different telephone numbers in the records.".format(uniqueNumbersTotal))
+unique_numbers_total = len(unique_numbers)
+
+print("There are {0} different telephone numbers in the records.".format(unique_numbers_total))
