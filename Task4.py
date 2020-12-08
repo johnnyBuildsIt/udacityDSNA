@@ -24,27 +24,24 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
-outgoingCalls = []
-incomingCalls = []
-outgoingTexts = []
-incomingTexts = []
+outgoingCalls = set()
+incomingCalls = set()
+outgoingTexts = set()
+incomingTexts = set()
 
 for e in calls:
-    if e[0] not in outgoingCalls:
-        outgoingCalls.append(e[0])
-    if e[1] not in incomingCalls:
-        incomingCalls.append(e[1])
+    outgoingCalls.add(e[0])
+    incomingCalls.add(e[1])
 
 for e in texts:
-    if e[0] not in outgoingTexts:
-        outgoingTexts.append(e[0])
-    if e[1] not in incomingTexts:
-        incomingTexts.append(e[1])
+    outgoingTexts.add(e[0])
+    incomingTexts.add(e[1])
 
 suspectedTelemarketers = []
 
 for e in outgoingCalls:
-    if e not in incomingCalls and e not in outgoingTexts and e not in incomingTexts and e[0] != '1':
+    if e not in incomingCalls and e not in outgoingTexts and e not in incomingTexts:
         suspectedTelemarketers.append(e)
 
-print(suspectedTelemarketers)
+print("These numbers could be telemarketers:")
+print(*sorted(suspectedTelemarketers), sep='\n')
