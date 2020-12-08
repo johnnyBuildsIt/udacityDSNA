@@ -43,10 +43,9 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
-
 # Part A
-bangaloreCalled = []
-uniqueCodes = []
+uniqueCodes = set()
+codesBangaloreCalled = []
 
 
 def get_code_for_fixed(num):
@@ -54,7 +53,7 @@ def get_code_for_fixed(num):
 
 
 def get_code_for_mobile(num):
-    return num[0:num.find(' ')]
+    return num[0:4]
 
 
 def get_phone_code(num):
@@ -69,24 +68,23 @@ def get_phone_code(num):
 for entry in calls:
     if "(080)" in entry[0]:
         code = get_phone_code(entry[1])
-        bangaloreCalled.append(code)  # for part B
-        if code not in uniqueCodes:
-            uniqueCodes.append(code)
+        codesBangaloreCalled.append(code)  # for part B
+        uniqueCodes.add(code)
 
-uniqueCodes.sort()
+sortedUniqueCodes = list(uniqueCodes)
+sortedUniqueCodes.sort()
 
 print("The numbers called by people in Bangalore have codes:")
-for e in uniqueCodes:
+for e in sortedUniqueCodes:
     print(e)
-
 
 # Part B
 bangalore_to_bangalore_count = 0
-for e in bangaloreCalled:
+for e in codesBangaloreCalled:
     if e == "080":
         bangalore_to_bangalore_count += 1
 
-percentage = bangalore_to_bangalore_count / len(bangaloreCalled)
+percentage = (bangalore_to_bangalore_count / len(codesBangaloreCalled)) * 100
 
 print("\n{0} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."
-      .format(percentage))
+      .format(round(percentage, 2)))
