@@ -15,21 +15,21 @@ Space: O(1)
 
 
 Task2
-Time: O(n^2)
+Time: O(n)
 - when get_times_for_numbers is called, it will iterate through all of calls once
 - for each element in the set is will check if it is in the callTimes keys
-- the worst case being all the numbers are in the keys
+- dictionary key lookup is constant time
 Space: O(n)
 - where n is the number of unique numbers in calls
 - all the numbers in calls are being copied to a new data structure
 
 
 Task3
-Time: O(n)
+Time: O(nlog(n))
 - the main dataset, calls, is iterated once and two lists are created from this:
 one containing all the phone codes Bangalore called and one for the unique codes.
-Those lists are also iterated once. One could also argue that the answer is:
-O(length of calls + length bangaloreCalled + length uniqueCodes)
+Those lists are also iterated once.
+- inally the sort() method is called on the list which is nlog(n)
 Space: O(n)
 - while the entire calls dataset isn't copied, some of it is used to create other lists
 and 1/2n still comes out to n, all the new data structures are 1D
