@@ -37,4 +37,17 @@ class LinkedList:
         node.next = new_node
 
     def search(self, value):
-        pass
+        if self.head is None:
+            return None
+
+        node = self.head
+        if node.value == value:
+            return node
+
+        while node.next:
+            node = node.next
+            if node.value == value:
+                return node
+
+        return None
+

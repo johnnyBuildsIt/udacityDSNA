@@ -36,8 +36,8 @@ class MyTestCase(unittest.TestCase):
         linked_list.append(4)
         linked_list.append(3)
 
-        self.assertEqual(linked_list.search(1), 1)
-        self.assertEqual(linked_list.search(4), 4)
+        self.assertEqual(linked_list.search(1).value, 1)
+        self.assertEqual(linked_list.search(4).value, 4)
 
     def testSearchForNonExistingValue(self):
         linked_list = LinkedList()
@@ -47,6 +47,11 @@ class MyTestCase(unittest.TestCase):
         linked_list.append(3)
 
         self.assertEqual(linked_list.search(7), None)
+
+    def testSearchForValueInEmptyList(self):
+        linked_list = LinkedList()
+
+        self.assertEqual(linked_list.search(10), None)
 
 
 if __name__ == '__main__':
