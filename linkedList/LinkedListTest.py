@@ -3,6 +3,7 @@ from LinkedList import LinkedList
 
 
 class MyTestCase(unittest.TestCase):
+    # Prepend Tests
     def testPrependToEmptyList(self):
         linked_list = LinkedList()
         linked_list.prepend(1)
@@ -16,6 +17,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(linked_list.to_list(), [2, 1])
 
+    # Append Tests
     def testAppendToEmptyList(self):
         linked_list = LinkedList()
         linked_list.append(1)
@@ -29,6 +31,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(linked_list.to_list(), [1, 2])
 
+    # Search Tests
     def testSearchForAValue(self):
         linked_list = LinkedList()
         linked_list.prepend(2)
