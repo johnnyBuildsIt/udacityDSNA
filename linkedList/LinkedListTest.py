@@ -56,6 +56,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(linked_list.search(10), None)
 
+    # Remove Tests
     def testRemoveFromEmptyList(self):
         linked_list = LinkedList()
 
