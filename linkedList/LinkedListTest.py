@@ -161,6 +161,16 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(linked_list.to_list(), [1, 2, 3, 4, 10])
 
+    # Size Tests
+    def testSizeOfEmptyList(self):
+        pass
+
+    def testSizeOfListWithOneElement(self):
+        pass
+
+    def testSizeOfListWithMultipleElements(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
