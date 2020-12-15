@@ -83,14 +83,46 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(linked_list.to_list(), [1, 2, 3])
 
-    def restRemoveItemThatDoesNotExistInList(self):
+    def testRemoveItemThatDoesNotExistInList(self):
         linked_list = LinkedList()
         linked_list.prepend(2)
         linked_list.prepend(1)
         linked_list.append(4)
         linked_list.append(3)
 
-        self.assertEqual(linked_list.to_list(), [1, 2, 4, 3 ])
+        linked_list.remove(8)
+
+        self.assertEqual(linked_list.to_list(), [1, 2, 4, 3])
+
+    # Pop Tests
+    def testPopOnEmptyList(self):
+        linked_list = LinkedList()
+
+        value = linked_list.pop()
+
+        self.assertEqual(value, None)
+        self.assertEqual(linked_list.to_list(), [])
+
+    def testPopOnListWithOneItem(self):
+        linked_list = LinkedList()
+        linked_list.append(4)
+
+        value = linked_list.pop()
+
+        self.assertEqual(value, 4)
+        self.assertEqual(linked_list.to_list(), [])
+
+    def testPopOnListWithMultipleItems(self):
+        linked_list = LinkedList()
+        linked_list.prepend(2)
+        linked_list.prepend(1)
+        linked_list.append(4)
+        linked_list.append(3)
+
+        value = linked_list.pop()
+
+        self.assertEqual(value, 1)
+        self.assertEqual(linked_list.to_list(), [2, 4, 3])
 
 
 if __name__ == '__main__':

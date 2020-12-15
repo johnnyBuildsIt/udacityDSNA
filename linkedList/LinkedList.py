@@ -73,3 +73,13 @@ class LinkedList:
                     return
             else:
                 return
+
+    def pop(self):
+        if self.head is None:
+            return None
+
+        node = self.head
+        self.head = node.next
+        node.next = None
+
+        return node.value
