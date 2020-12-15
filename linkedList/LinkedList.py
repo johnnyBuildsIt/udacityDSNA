@@ -85,4 +85,17 @@ class LinkedList:
         return node.value
 
     def insert(self, value, position):
-        pass
+        if self.head is None or position == 0:
+            self.prepend(value)
+            return
+
+        node = self.head
+        for i in range(1, position):
+            if node.next is None:
+                self.append(value)
+                return
+            node = node.next
+
+        new_node = Node(value)
+        new_node.next = node.next
+        node.next = new_node
