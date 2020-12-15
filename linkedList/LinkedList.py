@@ -83,3 +83,6 @@ class LinkedList:
         node.next = None
 
         return node.value
+
+    def insert(self, value, position):
+        pass

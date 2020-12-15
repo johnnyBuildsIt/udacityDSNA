@@ -124,6 +124,43 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(value, 1)
         self.assertEqual(linked_list.to_list(), [2, 4, 3])
 
+    # Insert Tests
+    def testInsertOnEmptyListAtAppropriatePosition(self):
+        linked_list = LinkedList()
+
+        linked_list.insert(4, 0)
+
+        self.assertEqual(linked_list.to_list(), [4])
+
+    def testInsertOnEmptyListAtInappropriatePosition(self):
+        linked_list = LinkedList()
+
+        linked_list.insert(4, 5)
+
+        self.assertEqual(linked_list.to_list(), [4])
+
+    def testInsertOnPopulatedListAtAppropriatePosition(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        linked_list.append(4)
+
+        linked_list.insert(10, 2)
+
+        self.assertEqual(linked_list.to_list(), [1, 2, 10, 3, 4])
+
+    def testInsertOnPopulatedListAtInappropriatePosition(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        linked_list.append(4)
+
+        linked_list.insert(10, 20)
+
+        self.assertEqual(linked_list.to_list(), [1, 2, 3, 4, 10])
+
 
 if __name__ == '__main__':
     unittest.main()
