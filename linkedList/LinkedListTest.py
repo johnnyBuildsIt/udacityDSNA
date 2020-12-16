@@ -193,6 +193,33 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(4, linked_list.size())
 
+    # Reverse Tests
+    def testReverseEmptyList(self):
+        linked_list = LinkedList()
+
+        linked_list.reverse()
+
+        self.assertEqual([], linked_list.to_list())
+
+    def testReverseListWithOneElement(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+
+        linked_list.reverse()
+
+        self.assertEqual([1], linked_list.to_list())
+
+    def testReverseListWithMultipleElements(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(2)
+        linked_list.append(3)
+        linked_list.append(4)
+
+        linked_list.reverse()
+
+        self.assertEqual([4, 3, 2, 1], linked_list.to_list())
+
 
 if __name__ == '__main__':
     unittest.main()

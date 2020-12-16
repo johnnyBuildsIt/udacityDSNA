@@ -112,3 +112,20 @@ class LinkedList:
             node = node.next
 
         return count
+
+    def reverse(self):
+        if self.head is None or self.head.next is None:
+            return self.to_list()
+
+        cur_node = self.head
+        next_node = cur_node.next
+        prev_node = None
+
+        while cur_node:
+            cur_node.next = prev_node
+            if next_node is None:
+                self.head = cur_node
+                return
+            prev_node = cur_node
+            cur_node = next_node
+            next_node = cur_node.next
