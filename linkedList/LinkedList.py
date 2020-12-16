@@ -56,13 +56,14 @@ class LinkedList:
             return
 
         if self.head.value == value:
-            self.head = None
+            removed_node = self.head
+            self.head = removed_node.next
+            removed_node.next = None
             return
         elif self.head.next is None:
             return
 
         node = self.head
-        next_node = None
         while node.next:
             node = node.next
             if node.next:

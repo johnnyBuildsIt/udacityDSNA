@@ -94,6 +94,17 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(linked_list.to_list(), [1, 2, 4, 3])
 
+    def testRemoveFirstItemInList(self):
+        linked_list = LinkedList()
+        linked_list.prepend(2)
+        linked_list.prepend(1)
+        linked_list.append(4)
+        linked_list.append(3)
+
+        linked_list.remove(1)
+
+        self.assertEqual([2, 4, 3], linked_list.to_list())
+
     # Pop Tests
     def testPopOnEmptyList(self):
         linked_list = LinkedList()
