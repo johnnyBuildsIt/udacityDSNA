@@ -2,7 +2,7 @@ import unittest
 from LinkedList import LinkedList
 
 
-class MyTestCase(unittest.TestCase):
+class LinkedListTest(unittest.TestCase):
     # Prepend Tests
     def testPrependToEmptyList(self):
         linked_list = LinkedList()
