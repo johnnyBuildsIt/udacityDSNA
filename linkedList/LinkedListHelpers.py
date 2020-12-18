@@ -39,3 +39,7 @@ class LinkedListHelpers:
                 merge_list.append(list2_node.value)
                 list2_node = list2_node.next
         return merge_list
+
+    @staticmethod
+    def flatten(linked_list):
+        pass
