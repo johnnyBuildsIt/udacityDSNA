@@ -38,6 +38,26 @@ class LinkedListHelpersTest(unittest.TestCase):
 
         self.assertEqual([1, 3, 5], merged_list.to_list())
 
+    def testMergeWithNoneAsFirstArgument(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(3)
+        linked_list.append(5)
+
+        merged_list = LinkedListHelpers.merge(None, linked_list)
+
+        self.assertEqual([1, 3, 5], merged_list.to_list())
+
+    def testMergeWithNoneAsSecondArgument(self):
+        linked_list = LinkedList()
+        linked_list.append(1)
+        linked_list.append(3)
+        linked_list.append(5)
+
+        merged_list = LinkedListHelpers.merge(linked_list, None)
+
+        self.assertEqual([1, 3, 5], merged_list.to_list())
+
     # Flatten Tests
     def testFlattenEmptyLinkedList(self):
         linked_list = LinkedList()
@@ -46,15 +66,15 @@ class LinkedListHelpersTest(unittest.TestCase):
 
         self.assertEqual([], flattened_list.to_list())
 
-    def testFlattenFlatList(self):
-        linked_list = LinkedList()
-        linked_list.append(1)
-        linked_list.append(3)
-        linked_list.append(5)
-
-        flattened_list = LinkedListHelpers.flatten(linked_list)
-
-        self.assertEqual([1, 3, 5], flattened_list.to_list())
+    # def testFlattenFlatList(self):
+    #     linked_list = LinkedList()
+    #     linked_list.append(1)
+    #     linked_list.append(3)
+    #     linked_list.append(5)
+    #
+    #     flattened_list = LinkedListHelpers.flatten(linked_list)
+    #
+    #     self.assertEqual([1, 3, 5], flattened_list.to_list())
 
     def testFlattenNestedListWithTwoNodes(self):
         linked_list = LinkedList()

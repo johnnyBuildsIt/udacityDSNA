@@ -1,5 +1,6 @@
 from LinkedList import LinkedList
 
+
 class LinkedListHelpers:
 
     @staticmethod
@@ -19,6 +20,11 @@ class LinkedListHelpers:
 
     @staticmethod
     def merge(linked_list1, linked_list2):
+        if linked_list1 is None:
+            return linked_list2
+        if linked_list2 is None:
+            return linked_list1
+
         merge_list = LinkedList()
         if linked_list1.head is None and linked_list2.head is None:
             return merge_list
@@ -42,4 +48,12 @@ class LinkedListHelpers:
 
     @staticmethod
     def flatten(linked_list):
-        pass
+        if linked_list.head is None:
+            return linked_list
+        return LinkedListHelpers._recursive_flatten(linked_list.head)
+
+    @staticmethod
+    def _recursive_flatten(node):
+        if node.next is None:
+            return LinkedListHelpers.merge(node.value, None)
+        return LinkedListHelpers.merge(node.value, LinkedListHelpers._recursive_flatten(node.next))
