@@ -16,11 +16,8 @@ class EvenAfterOdd:
 
         while cur is not None:
             if prev.value % 2 == 0 and cur.value % 2 != 0:
-                prev.next = nxt
                 if last_odd is None:
-                    cur.next = head
-                    head = cur
-                    last_odd = cur
+                    head, last_odd = EvenAfterOdd.swap_nodes_last_odd_none(cur, head, last_odd, nxt, prev)
                     if nxt is None:
                         cur = None
                         continue
@@ -28,9 +25,7 @@ class EvenAfterOdd:
                         cur = nxt
                         nxt = cur.next
                 else:
-                    cur.next = last_odd.next
-                    last_odd.next = cur
-                    last_odd = cur
+                    last_odd = EvenAfterOdd.swap_nodes(cur, last_odd, nxt, prev)
                     if nxt is None:
                         cur = None
                         continue
@@ -45,30 +40,21 @@ class EvenAfterOdd:
                     prev = cur
                     cur = nxt
                     nxt = cur.next
-            # if (prev.value % 2 == 0 and cur.value % 2 == 0) or \
-            #         (prev.value % 2 != 0 and cur.value % 2 != 0) or \
-            #         (prev.value % 2 != 0 and cur.value % 2 == 0):
-            #     prev = cur
-            #     cur = nxt
-            #     if cur is not None:
-            #         nxt = cur.next
-            # elif prev.value % 2 == 0 and cur.value % 2 != 0:
-            #     prev.next = nxt
-            #     if last_odd is None:
-            #         cur.next = head
-            #         head = cur
-            #         last_odd = head
-            #         cur = nxt
-            #         nxt = cur.next
-            #     else:
-            #         cur.next = last_odd.next
-            #         last_odd.next = cur
-            #         last_odd = cur
-            #         if nxt is not None:
-            #             #prev = cur
-            #             cur = nxt
-            #             nxt = cur.next
-            #         else:
-            #             cur = None
         linked_list.head = head
         return linked_list
+
+    @staticmethod
+    def swap_nodes(cur, last_odd, nxt, prev):
+        prev.next = nxt
+        cur.next = last_odd.next
+        last_odd.next = cur
+        last_odd = cur
+        return last_odd
+
+    @staticmethod
+    def swap_nodes_last_odd_none(cur, head, last_odd, nxt, prev):
+        prev.next = nxt
+        cur.next = head
+        head = cur
+        last_odd = cur
+        return head, last_odd
