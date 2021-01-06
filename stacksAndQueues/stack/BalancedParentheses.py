@@ -10,13 +10,18 @@ class BalancedParentheses:
            bool: Return if parentheses are balanced or not
         """
 
-        # TODO: Intiate stack object
+        stack = Stack()
 
-        # TODO: Interate through equation checking parentheses
+        for char in equation:
+            if char == '(':
+                stack.push(char)
+            elif char == ')':
+                stack.pop()
 
-        # TODO: Return True if balanced and False if not
-
-        pass
+        if stack.size() == 0:
+            return True
+        else:
+            return False
 
 
 class Stack:
