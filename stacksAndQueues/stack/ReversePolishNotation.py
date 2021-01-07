@@ -1,7 +1,28 @@
 class ReversePolishNotation:
 
-    def asdf(self):
-        pass
+    @staticmethod
+    def evaluate_post_fix(input_list):
+        stack = Stack()
+        for n in input_list:
+            if n == '+':
+                second = stack.pop()
+                first = stack.pop()
+                stack.push(first + second)
+            elif n == '-':
+                second = stack.pop()
+                first = stack.pop()
+                stack.push(first - second)
+            elif n == '/':
+                second = stack.pop()
+                first = stack.pop()
+                stack.push(int(first / second))
+            elif n == '*':
+                second = stack.pop()
+                first = stack.pop()
+                stack.push(first * second)
+            else:
+                stack.push(int(n))
+        return stack.pop()
 
 
 class LinkedListNode:
