@@ -25,3 +25,24 @@ class RecursionTest(unittest.TestCase):
         result = recurser.reverse_string("abc", -1)
 
         self.assertEqual(result, "cba")
+
+    def testIsPalindromeEvenLen(self):
+        recurser = Recursion()
+
+        result = recurser.is_palindrome("abba")
+
+        self.assertTrue(result)
+
+    def testIsPalindromeOddLen(self):
+        recurser = Recursion()
+
+        result = recurser.is_palindrome("madam")
+
+        self.assertTrue(result)
+
+    def testIsPalindromeFalse(self):
+        recurser = Recursion()
+
+        result = recurser.is_palindrome("house")
+
+        self.assertFalse(result)
