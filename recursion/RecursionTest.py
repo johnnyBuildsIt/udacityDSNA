@@ -18,3 +18,10 @@ class RecursionTest(unittest.TestCase):
         result = recurser.factorial(4)
 
         self.assertEqual(result, 24)
+
+    def testReverseString(self):
+        recurser = Recursion()
+
+        result = recurser.reverse_string("abc", -1)
+
+        self.assertEqual(result, "cba")
