@@ -67,3 +67,10 @@ class RecursionTest(unittest.TestCase):
         result = recurser.add_one([9, 9, 9, 9])
 
         self.assertEqual(result, [1, 0, 0, 0, 0])
+
+    def testPermute(self):
+        recurser = Recursion()
+
+        result = recurser.permute([0, 1, 2])
+
+        self.assertEqual([[0, 1, 2], [1, 0, 2], [1, 2, 0], [0, 2, 1], [2, 0, 1], [2, 1, 0]], result)
