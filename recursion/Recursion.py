@@ -22,3 +22,20 @@ class Recursion:
             return self.is_palindrome(string[1:-1])
         else:
             return False
+
+    def add_one(self, arr):
+        return self.add_one_recursive(arr, -1)
+
+    def add_one_recursive(self, arr, index):
+        if index < -len(arr):
+            arr = [0 for i in range(-index)]
+            arr[0] = 1
+            return arr
+
+        summ = arr[index] + 1
+        if summ < 10:
+            arr[index] = summ
+            return arr
+        else:
+            arr[index] = 0
+            return self.add_one_recursive(arr, index - 1)

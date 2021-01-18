@@ -46,3 +46,24 @@ class RecursionTest(unittest.TestCase):
         result = recurser.is_palindrome("house")
 
         self.assertFalse(result)
+
+    def testAddOneSimple(self):
+        recurser = Recursion()
+
+        result = recurser.add_one([1, 2, 3, 4])
+
+        self.assertEqual(result, [1, 2, 3, 5])
+
+    def testAddOneLessSimple(self):
+        recurser = Recursion()
+
+        result = recurser.add_one([1, 2, 3, 9])
+
+        self.assertEqual(result, [1, 2, 4, 0])
+
+    def testAddOneLeastSimplest(self):
+        recurser = Recursion()
+
+        result = recurser.add_one([9, 9, 9, 9])
+
+        self.assertEqual(result, [1, 0, 0, 0, 0])
