@@ -74,3 +74,10 @@ class RecursionTest(unittest.TestCase):
         result = recurser.permute([0, 1, 2])
 
         self.assertEqual([[0, 1, 2], [1, 0, 2], [1, 2, 0], [0, 2, 1], [2, 0, 1], [2, 1, 0]], result)
+
+    def testKeypadCombinations23(self):
+        recurser = Recursion()
+
+        result = recurser.keypad(23)
+
+        self.assertEqual(sorted(["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]), sorted(result))

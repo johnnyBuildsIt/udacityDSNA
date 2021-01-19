@@ -59,3 +59,40 @@ class Recursion:
                     out_list.append(cur_list)
 
         return out_list
+
+    def get_characters(self, num):
+        if num == 2:
+            return "abc"
+        elif num == 3:
+            return "def"
+        elif num == 4:
+            return "ghi"
+        elif num == 5:
+            return "jkl"
+        elif num == 6:
+            return "mno"
+        elif num == 7:
+            return "pqrs"
+        elif num == 8:
+            return "tuv"
+        elif num == 9:
+            return "wxyz"
+        else:
+            return ""
+
+    def keypad(self, num):
+        if num <= 1:
+            return [""]
+        elif 1 < num <= 9:
+            return list(self.get_characters(num))
+
+        last_num = num % 10
+        last_num_letters = self.get_characters(last_num)
+        upper_letters = self.keypad(num//10)
+
+        output = []
+        for letters in upper_letters:
+            for letter in last_num_letters:
+                output.append(letters + letter)
+
+        return output
