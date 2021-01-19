@@ -1,3 +1,5 @@
+import copy
+
 class Recursion:
 
     def sum_ints_upto(self, n):
@@ -39,3 +41,21 @@ class Recursion:
         else:
             arr[index] = 0
             return self.add_one_recursive(arr, index - 1)
+
+    def permute(self, in_list):
+        out_list = []
+
+        if len(in_list) == 0:
+            out_list.append([])
+            return out_list
+        else:
+            first_item = in_list[0]
+            permuted_rest_of_list = self.permute(in_list[1:])
+
+            for sub_list in permuted_rest_of_list:
+                for i in range(0, len(sub_list)+1):
+                    cur_list = copy.deepcopy(sub_list)
+                    cur_list.insert(i, first_item)
+                    out_list.append(cur_list)
+
+        return out_list
