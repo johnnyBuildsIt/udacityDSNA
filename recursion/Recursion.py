@@ -1,5 +1,6 @@
 import copy
 
+
 class Recursion:
 
     def sum_ints_upto(self, n):
@@ -53,7 +54,7 @@ class Recursion:
             permuted_rest_of_list = self.permute(in_list[1:])
 
             for sub_list in permuted_rest_of_list:
-                for i in range(0, len(sub_list)+1):
+                for i in range(0, len(sub_list) + 1):
                     cur_list = copy.deepcopy(sub_list)
                     cur_list.insert(i, first_item)
                     out_list.append(cur_list)
@@ -88,7 +89,7 @@ class Recursion:
 
         last_num = num % 10
         last_num_letters = self.get_characters(last_num)
-        upper_letters = self.keypad(num//10)
+        upper_letters = self.keypad(num // 10)
 
         output = []
         for letters in upper_letters:
@@ -96,3 +97,14 @@ class Recursion:
                 output.append(letters + letter)
 
         return output
+
+    def staircase(self, steps):
+        if steps == 1:
+            return 1
+        elif steps == 2:
+            return 2
+        elif steps == 3:
+            return 4
+
+        return self.staircase(steps - 1) + self.staircase(steps - 2) + self.staircase(steps - 3)
+

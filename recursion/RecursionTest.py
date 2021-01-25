@@ -81,3 +81,31 @@ class RecursionTest(unittest.TestCase):
         result = recurser.keypad(23)
 
         self.assertEqual(sorted(["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]), sorted(result))
+
+    def testStaircase1(self):
+        recurser = Recursion()
+
+        result = recurser.staircase(1)
+
+        self.assertEqual(result, 1)
+
+    def testStaircase2(self):
+        recurser = Recursion()
+
+        result = recurser.staircase(2)
+
+        self.assertEqual(result, 2)
+
+    def testStaircase3(self):
+        recurser = Recursion()
+
+        result = recurser.staircase(3)
+
+        self.assertEqual(result, 4)
+
+    def testStaircase4(self):
+        recurser = Recursion()
+
+        result = recurser.staircase(4)
+
+        self.assertEqual(result, 7)
