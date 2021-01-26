@@ -109,3 +109,10 @@ class RecursionTest(unittest.TestCase):
         result = recurser.staircase(4)
 
         self.assertEqual(result, 7)
+
+    def testStaircaseCache(self):
+        recurser = Recursion()
+
+        result = recurser.staircase_cache(8)
+
+        self.assertEqual(result, 81)

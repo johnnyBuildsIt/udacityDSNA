@@ -108,3 +108,32 @@ class Recursion:
 
         return self.staircase(steps - 1) + self.staircase(steps - 2) + self.staircase(steps - 3)
 
+    def staircase_cache(self, steps):
+        cache = {}
+        return self.staircase_cache_helper(steps, cache)
+
+    def staircase_cache_helper(self, steps, cache):
+        if steps == 1:
+            return 1
+        elif steps == 2:
+            return 2
+        elif steps == 3:
+            return 4
+        else:
+            if steps - 1 in cache:
+                steps_minus_one =  cache[steps - 1]
+            else:
+                steps_minus_one = self.staircase_cache_helper(steps - 1, cache)
+
+            if steps - 2 in cache:
+                steps_minus_two = cache[steps - 2]
+            else:
+                steps_minus_two = self.staircase_cache_helper(steps - 2, cache)
+
+            if steps - 3 in cache:
+                steps_minus_three = cache[steps - 3]
+            else:
+                steps_minus_three = self.staircase_cache_helper(steps - 3, cache)
+
+        return steps_minus_one + steps_minus_two + steps_minus_three
+
