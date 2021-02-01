@@ -23,7 +23,7 @@ class LruCacheTest(unittest.TestCase):
         self.assertEqual(result1, -1)
         self.assertEqual(result2, 2)
 
-    def testDontAddExistingElementsAgain(self):
+    def testDontAddDuplicateElements(self):
         lru_cache = LruCache(1)
         lru_cache.set(1, 1)
         lru_cache.set(1, 1)
