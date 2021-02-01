@@ -1,3 +1,5 @@
+from pyllist import dllist
+
 class LruCache(object):
 
     def __init__(self, capacity):
