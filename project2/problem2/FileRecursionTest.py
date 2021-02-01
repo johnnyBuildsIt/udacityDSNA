@@ -5,4 +5,5 @@ import unittest
 class FileRecursionTest(unittest.TestCase):
 
     def test1(self):
-        pass
+        finder = FileRecursion()
+        print(finder.find_files(1, 2))

@@ -1,3 +1,6 @@
+import os
+
+
 class FileRecursion:
 
     def find_files(self, suffix, path):
@@ -16,4 +19,4 @@ class FileRecursion:
         Returns:
            a list of paths
         """
-        return None
+        return os.listdir("testdir")
