@@ -19,5 +19,12 @@ class FileRecursion:
         Returns:
            a list of paths
         """
+        search_list = []
         contents = os.listdir(path)
-        return contents
+        for i in contents:
+            full_path = path + "/" + i
+            if os.path.isfile(full_path) and full_path.endswith(suffix):
+                search_list.append(full_path)
+            elif os.path.isdir(full_path):
+                search_list.extend(self.find_files(suffix, path + "/" + i))
+        return search_list
