@@ -19,4 +19,5 @@ class FileRecursion:
         Returns:
            a list of paths
         """
-        return os.listdir("testdir")
+        contents = os.listdir(path)
+        return contents

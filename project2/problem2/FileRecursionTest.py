@@ -6,4 +6,4 @@ class FileRecursionTest(unittest.TestCase):
 
     def test1(self):
         finder = FileRecursion()
-        print(finder.find_files(1, 2))
+        print(finder.find_files(".c", "testdir"))
